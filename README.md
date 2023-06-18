@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Getting Started with TicTacToe Game created in react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The code defines a functional component called Square. It takes two props: value and onSquareClick. The Square component renders a button element with the square class. When the button is clicked, the onSquareClick function is called. The value prop is displayed as the button's text.
 
-## Available Scripts
 
-In the project directory, you can run:
+The code defines another functional component called Board. It takes three props: xIsNext, squares, and onPlay. The Board component represents the game board and handles the logic for updating the game state when a square is clicked.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Inside the Board component, there is a handleClick function that is called when a square is clicked. It checks if there is a winner or if the square is already filled. If either condition is true, the function returns early and doesn't update the game state. Otherwise, it creates a new array nextSquares by making a copy of the squares array. It then updates the value of the clicked square based on whether it's "X" or "O". Finally, it calls the onPlay function, passing the nextSquares array.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+The calculateWinner function is a helper function that checks if there is a winner based on the current state of the squares array. It checks all possible winning combinations and returns the winning symbol ("X" or "O") if there is a winner, or null if there is no winner.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+The Board component also declares a winner variable by calling the calculateWinner function with the squares prop. It determines the current winner of the game.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The status variable is set based on the winner variable. If there is a winner, it displays "Winner: " followed by the winning symbol. Otherwise, it displays "Next player: " followed by either "X" or "O" based on the value of xIsNext.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+The Board component returns JSX elements representing the game board. It includes the game title, the current status, and a grid of Square components representing the squares of the game board. Each Square component receives the corresponding value from the squares array and the handleClick function as props.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The Game component is the top-level component that manages the game state. It uses the useState hook to define two state variables: history and currentMove. The history state stores an array of all the game states, and currentMove keeps track of the current move.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The handlePlay function is passed as a prop to the Board component. It is called when a square is clicked and updates the game history and current move. It creates a new nextHistory array by cloning the history array, appending the new nextSquares array to it. Then, it updates the history state and sets the currentMove state to the index of the new move.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The jumpTo function is used to update the currentMove state when a move button is clicked. It sets the currentMove state to the nextMove parameter, effectively changing the current move and updating the game board.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+The moves variable is created by mapping over the history array. It generates a list of move buttons that allow the player to jump to a specific move. The button's onClick event is set to call the jumpTo function with the corresponding move index.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Game component returns JSX elements representing the game. It includes the Board component, passing the xIsNext state, the current squares from the history, and the handlePlay function as props. It also renders the move list using the moves variable.
