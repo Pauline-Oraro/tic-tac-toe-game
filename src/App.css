@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: monospace;
+  margin: 20px;
+  padding: 0;
+  background-color: #D0AB99;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  font-family: cursive;
 }
 
-.App-link {
-  color: #61dafb;
+ol {
+  padding-left: 40px;
+  font-size: 24px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+li{
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+li button{
+  border: 4px solid #FBEDE0;
+  border-radius: 10px;
+  padding: 4px;
+  font-family: monospace;
+  font-size: 24px;
+  background-color: #FBEDE0;
+}
+
+
+.board{
+  width: 100%;
+  height: 350px;
+  background-color: #D4BBDD;
+  margin: 0 auto;
+}
+
+.board-row{
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.square {
+  background: #FBEDE0;
+  border: 4px solid #FBEDE0;
+  border-radius: 10px;
+  float: left;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: monospace;
+  height: 50px;
+  margin-right: 15px;
+  text-align: center;
+  width: 50px;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 100px;
+  margin-top: 80px;
+  width: 30%;
+  height: auto;
+  background-color: #FDD1D2;
+}
+
+@media only screen and (min-width: 150px) and (max-width: 500px){
+  .game-info {
+    margin-left: -300px;
+    margin-top: 900px;
+    width: 60%;
+    height: auto;
+    background-color: #FDD1D2;
   }
-  to {
-    transform: rotate(360deg);
+  li{
+    margin-right: 15px;
+  }
+  .status{
+    text-align: center;
+  }
+  .board-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    padding: 0px;
+  }
+  .square{
+    margin: 10px;
+  }
+  .board{
+    width: 50%;
+    height: auto;
+    background-color: #D4BBDD;
+    margin: 10px ;
   }
 }
