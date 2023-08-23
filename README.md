@@ -34,3 +34,7 @@ The moves variable is created by mapping over the history array. It generates a 
 
 
 The Game component returns JSX elements representing the game. It includes the Board component, passing the xIsNext state, the current squares from the history, and the handlePlay function as props. It also renders the move list using the moves variable.
+
+### You can view the lieve demo here
+
+(Tictactoe game created using react)[https://tic-tac-toe-game-pauline-oraro.netlify.app/]
