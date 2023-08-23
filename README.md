@@ -37,4 +37,4 @@ The Game component returns JSX elements representing the game. It includes the B
 
 ### You can view the lieve demo here
 
-(Tictactoe game created using react)[https://tic-tac-toe-game-pauline-oraro.netlify.app/]
+[Tictactoe game created using react](https://tic-tac-toe-game-pauline-oraro.netlify.app/)
